@@ -10,7 +10,7 @@ on:
       level:
         description: 'Votre niveau'
         required: true
-        default: '4 eme année'
+        default: '4'
       class:
         description: 'Votre classe'
         required: true
@@ -26,4 +26,4 @@ jobs:
     steps:
       - name: "workflow dispatch"
         run: |
-          echo "Hello, ${{ github.event.inputs.username }}! Vous etes en ${{ github.event.inputs.level }} et votre classe est ${{ github.event.inputs.class }}."
+          echo "Le joueur ${{ github.event.inputs.username }}! est de niveau ${{ github.event.inputs.level }} et joue un ${{ github.event.inputs.class }}."
