@@ -1,4 +1,4 @@
-name: 'hello schedule'
+"""name: 'hello schedule'
 on:
   schedule:
     - cron : '*/10 * * * *'
@@ -10,3 +10,4 @@ jobs:
       - name: Hello World
         run: |
           echo "Hello, world!"
+  """"
