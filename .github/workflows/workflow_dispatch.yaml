@@ -1,0 +1,29 @@
+name: "Workflow Dispatch"
+
+on:
+  workflow_dispatch:
+    inputs:
+      username:
+        description: 'Votre Nom d utilisateur'
+        required: true
+        default: 'Lea'
+      level:
+        description: 'Votre niveau'
+        required: true
+        default: '4 eme année'
+      class:
+        description: 'Votre classe'
+        required: true
+        default: 'jedi'
+        options:
+          - 'jedi'
+          - 'sith'
+          - 'rebel'
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "workflow dispatch"
+        run: |
+          echo "Hello, ${{ github.event.inputs.username }}! Vous etes en ${{ github.event.inputs.level }} et votre classe est ${{ github.event.inputs.class }}."
