@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: "notice"
         run: |
-          echo "ceci est une notice"
+          echo "::ceci est une notice"
       - name: "warning"
         run: |
           echo "::warning::ceci est un avertissement"
