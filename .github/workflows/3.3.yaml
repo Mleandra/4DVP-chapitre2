@@ -1,0 +1,16 @@
+name: Multi-Trigger Workflow
+on:
+  push:
+  workflow_trigger: {}
+  schedule:
+    - cron: "*/10 * * * *"
+
+jobs:
+  triggered_by:
+    name: "Triggered By Job"
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: "trigger event"
+      run: |
+        echo "Le job a été déclenché par un événement de type ${{ toJson(github.event_name) }}"
