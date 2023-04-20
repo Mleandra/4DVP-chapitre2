@@ -14,10 +14,10 @@ jobs:
           echo "HOST=srv1" >> $ GITHUB_OUTPUT
           echo "DATABASE=prep002" >> $ GITHUB_OUTPUT
   diplay-infos :
-    needs : setup_host
+    needs : prepare-tests
     runs-on : ubuntu-latest
     steps:
       - name : "echo host and database"
         run: |
-          echo " HOST =${{ needs.setup_host.outputs.HOST}}"
-          echo " DATABASE =${{ needs.setup_host.outputs.DATABASE}}"
+          echo " HOST =${{ needs.prepare-tests.outputs.HOST}}"
+          echo " DATABASE =${{ needs.prepare-tests.outputs.DATABASE}}"
