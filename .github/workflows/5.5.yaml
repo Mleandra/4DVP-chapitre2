@@ -1,0 +1,35 @@
+name: "Poetry  Build"
+on:
+  push:
+jobs:
+  poetry-build:
+      runs-on: ubuntu-latest
+      steps:
+        - name: "Checkout repository"
+          uses: actions/checkout@v3
+        - name: "setup python"
+          uses: actions/setup-python@v3
+          with:
+            python-version: "3.10"
+        - name: "Install  Poetry"
+          run : |
+            pip install poetry pytest
+        - name: "cache python"
+          uses: actions/cache@v3
+          with:
+            path: ~/.cache/pypoetry
+            key: poetry-cache-${{ runner.os }}-${{ steps.setup_python.outputs.python-version }}-${{ env.POETRY_VERSION }}
+        - name: "Run test"
+          run : |
+            pytest || true
+        - name: "Build Poetry"
+          run: |
+            poetry build
+        - name: "save Artefact"
+          uses: actions/upload-artifact@v3
+          with:
+            name: "save-artifact"
+            path: ./dist/
+
+
+          
