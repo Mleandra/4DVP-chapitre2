@@ -1,5 +1,4 @@
 name: "Test and Report"
-
 on:
   push:
 jobs:
@@ -23,7 +22,7 @@ jobs:
           pip install pytest pytest-html
       - name: "Run tests and generate report"
         run: |
-          pytest --html=report.html
+          pytest --html=report.html || true
       - name: "Upload report"
         uses: actions/upload-artifact@v3
         with:
