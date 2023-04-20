@@ -19,12 +19,13 @@ jobs:
       - name: "Install dependencies"
         run: pip install -r requirements.txt
       - name: "Install pytest"
-        run: pip install pytest
+        run: |
+          pip install pytest pytest-html
       - name: "Run tests and generate report"
         run: |
           pytest --html=report.html
       - name: "Upload report"
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v3
         with:
-          name: "Test Report"
+          name: "Test-Report"
           path: report.html
