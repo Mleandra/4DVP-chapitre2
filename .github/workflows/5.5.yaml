@@ -1,6 +1,7 @@
 name: "Poetry  Build"
 on:
   push:
+  pull_request:
 jobs:
   poetry-build:
       runs-on: ubuntu-latest
